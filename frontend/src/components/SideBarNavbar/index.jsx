@@ -75,11 +75,11 @@ function SideBarNavbar( props){
         <ul>
           {authorNavOptions.filter(item => item.status).map(item => (
             <li key={item.page} className="p-3 mt-2">
-              <a href={item.page} className="flex items-center">
+              <Link to={item.page} className="flex items-center">
                 <Text size="sm" className="!font-semiBold cursor-pointer">
                   {item.name}
                 </Text>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

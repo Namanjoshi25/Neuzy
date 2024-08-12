@@ -86,12 +86,12 @@ export default function Header({ ...props }) {
           <ul className="flex-1 flex justify-center items-center gap-10   md:hidden sm:hidden">
             {navLinks.filter(item => item.status).map((item) => (
               <li key={item.name}>
-                <a
-                  href={item.page}
+                <Link
+                  to={item.page}
                   className="font-montserrat text-white-A700 font-semibold  leading-normal text-lg text-slate-gray"
                 >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
             {authStatus ? 
@@ -148,12 +148,12 @@ export default function Header({ ...props }) {
             <ul className=" lg:hidden flex flex-col items-center justify-center h-full ">
               {navLinks.filter(item => item.status).map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.page}
+                  <Link
+                   to={item.page}
                     className="font-montserrat leading-normal text-lg text-slate-gray"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
