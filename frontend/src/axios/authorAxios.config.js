@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const authorToken = localStorage.getItem('authorToken')
 const authorAxiosInstance =axios.create({
-  baseURL: 'http://localhost:8000/api/v1',
+  baseURL: 'https://neuzy.onrender.com',
   timeout: 10000, // 10 seconds timeout
   headers: {
     'Content-Type': 'application/json',
