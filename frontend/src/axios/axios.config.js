@@ -3,7 +3,7 @@ import axios from 'axios';
 const token = localStorage.getItem('accessToken'); // Retrieve the token from localStorage
 
 const axiosInstance = axios.create({
-  baseURL: 'https://neuzy.onrender.com',
+  baseURL: 'https://neuzy.onrender.com/api/v1',
   timeout: 10000, // 10 seconds timeout
   headers: {
     'Content-Type': 'application/json',
