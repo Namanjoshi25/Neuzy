@@ -41,28 +41,10 @@ export default function HomepagePage() {
   const user =  useSelector(state => state.auth);
   
   
-  
-  
-  useEffect(() => {
-    const fetchCurrentUser = async () => {
-      try {
-        const res = await axiosInstance.get("/users/current-user");
-        if (!res) {
-          throw new Error("No response");
-        }
-      } catch (error) {
-        if (error.response && error.response.status === 401) {
-          toast.error("Please Refresh")
-          dispatch(logout());
-         navigate('/login');
-        }
-      }
-    };
-
-    fetchCurrentUser();
-  }, []);
-
+console.log(user);
   useEffect(()=>{
+    
+   
     const allPost = async()=>{
       const res = await axiosInstance.get("/news/all-news" ,{
         headers :{

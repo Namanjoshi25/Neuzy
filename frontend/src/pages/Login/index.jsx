@@ -41,9 +41,11 @@ export default function LoginPage() {
       localStorage.setItem("accessToken" , res.data.data.accessToken);
 
 
-      toast.success("Login successfull")
-      
-      navigate("/")
+      toast.success("Login successfull... Redirecting")
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+ 
 
   }
 

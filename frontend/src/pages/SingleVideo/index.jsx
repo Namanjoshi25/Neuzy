@@ -1,7 +1,7 @@
 import axiosInstance from "axios/axios.config";
 import { Heading ,Img} from "components";
 import Header from "components/Header";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Text } from "components";
 import format from "date-fns/format";
@@ -10,12 +10,15 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faTwitch, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Footer from "components/Footer";
-
+import { TailSpin } from "react-loader-spinner";
 
 function index() {
   const { id: videoId } = useParams();
   const [video, setVideo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isPlaying,setIsPlaying] = useState(true)
+
+  const videoRef=useRef();
 
   useEffect(() => {
     
@@ -28,9 +31,17 @@ function index() {
 
     fetchNewsById();
   }, [videoId]);
+
+  const handlePlayPause = ()=>{
+    if(isPlaying){
+      videoRef.current.pause()
+    }else videoRef.current.play();
+
+    setIsPlaying(!isPlaying)
+  }
   return (
     <div className=" w-full bg-white-A700">
-      {loading ? null : (
+      {loading ? null: (
         <div>
           <Header />
           <div className="flex flex-col px-[329px] items-center">
@@ -68,8 +79,18 @@ function index() {
                 </Heading>
               </div>
             </div>
-            <div className=" w-[550px]  ">
-              <video autoPlay src={video.videoUrl} />
+            <div className=" w-[550px] relative  ">
+              <video  onClick={handlePlayPause} ref={videoRef} autoPlay   src={video.videoUrl} />
+              {!isPlaying && (
+          <div className="absolute inset-0 flex justify-center items-center text-white">
+            <button
+              className="bg-black bg-opacity-50 rounded-full text-white-A700 p-4"
+              onClick={handlePlayPause}
+            >
+              ▶️
+            </button>
+          </div>
+        )}
             </div>
             <Text
               size="xl"

@@ -17,8 +17,8 @@ import HomepageRowhowtomaximiz from "components/HomepageRowhowtomaximiz";
 import { Link } from "react-router-dom";
 import Footer from "components/Footer";
 import VideoNewsCard from "components/VideoNewsCard";
-import { Loader, Placeholder } from 'rsuite';
 
+import { TailSpin } from "react-loader-spinner";
 
 function index() {
   const params = useParams();
@@ -71,8 +71,7 @@ function index() {
     setLoading(true)
    
   }
-  console.log(newsType);
-  console.log(currentPosts);
+
   return (
     <div className="flex flex-col  min-h-screen  ">
       <Header />
@@ -151,9 +150,9 @@ function index() {
         </div>
         </div>
         {loading && 
-    <>
+    <>  <TailSpin color="red" radius={"8px"} />
            <div style={{ height: 200, background: '#000' }}>
-           <Loader inverse center content="loading..." />
+         
          </div>
          </>
         }
@@ -168,7 +167,7 @@ function index() {
             currentPosts
               .slice(0, 3)
               .map((data, index) => (
-                <Link to={`/singleBlog/${data._id}`}>
+             
                 <VideoNewsCard
                 className="  shadow-md m-4 w-[370px] h-[270px] "
                 isAuthor ={false}
@@ -176,7 +175,7 @@ function index() {
                   key={"AuthorNewsListCard" + index}
                 />
  
- </Link>
+
               ))}
 
          </div>
@@ -187,7 +186,7 @@ function index() {
             currentPosts
               .slice(3, 6)
               .map((data, index) => (
-                <Link to={`/singleBlog/${data._id}`}>
+            
                 <VideoNewsCard
                 className="  shadow-md m-4 w-[370px] h-[270px]  "
                 isAuthor ={false}
@@ -195,8 +194,7 @@ function index() {
                   news={data}
                   key={"AuthorNewsListCard" + index}
                 />
- 
- </Link>
+
               ))}
 
 
@@ -217,15 +215,15 @@ function index() {
            currentPosts
              .slice(0, 6)
              .map((data, index) => (
-               <Link to={`/singleBlog/${data._id}`}>
+              
                <HomepageRowhowtomaximiz
-               className="  shadow-md m-4 "
+               className="  shadow-md m-4 w-3/4 "
             
                  news={data}
                  key={"AuthorNewsListCard" + index}
                />
 
-</Link>
+
              ))}
        </div>
        <Pagination

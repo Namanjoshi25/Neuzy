@@ -5,6 +5,8 @@ import Header from '../../components/Header'; // Your Header component
 import Reel from '../../components/ReelCard'; // Your Reel component
 import Footer from 'components/Footer';
 import { Heading } from 'components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown, faArrowsUpDown, faArrowUp, faArrowUp19 } from '@fortawesome/free-solid-svg-icons';
 
 const ReelScroller = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,6 +61,7 @@ const ReelScroller = () => {
                Quick News
               </Heading>
           <p className="mt-4 text-gray-700 text-center">The minute video news</p>
+          <p className=' mt-3 font-semibold'>Swipe <FontAwesomeIcon icon={faArrowsUpDown} /></p>
         </div>
         <div
           className="w-[400px]   overflow-y-hidden snap-y snap-mandatory"

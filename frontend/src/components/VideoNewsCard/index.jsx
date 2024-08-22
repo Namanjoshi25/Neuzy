@@ -12,9 +12,11 @@ export default function VideoNewsCard({
   ...props
 }) {
   
-  console.log(props);
+ 
   return (
-    <div {...props} className={`${props.className} flex flex-col shadow-md  w-[350px] gap-[21px]`}>
+    <Link to={`/singleBlog/${props._id}`}>
+    <div {...props} className={`${props.className} flex flex-col shadow-md h-[350px]  w-[350px] gap-[21px]`}>
+          
       <div className="relative h-1/2 md:h-auto">
         <Img src={props.news.thumbnail} alt="image" className=" h-full w-full object-cover" />
          <div className="absolute bottom-0 left-0 right-0 top-0 m-auto flex  h-full w-full flex-col items-start gap-[168px] bg-gradient p-3.5 md:gap-[126px] sm:gap-[84px]">
@@ -27,8 +29,8 @@ export default function VideoNewsCard({
         </div>
       </div>
       <div className="flex flex-col items-start  h-1/2 justify-between gap-5 ">
-        <div className="flex ml-2  flex-col">
-          <Heading as="h6" className="leading-[21px] tracking-[-0.50px] mb-2">
+        <div className="flex ml-2   flex-col">
+          <Heading as="h6" className="leading-[21px] tracking-[-0.50px] mb-2 overflow-hidden">
             {props.news.title}
           </Heading>
        {/*    <Text as="p" className="!font-poppins leading-[25px] tracking-[-0.50px] !text-black-900_7f">
@@ -57,6 +59,8 @@ export default function VideoNewsCard({
          
         
       </div>
+    
     </div>
+    </Link>
   );
 }

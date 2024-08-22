@@ -67,14 +67,15 @@ import { Link } from "react-router-dom";
         /> 
         <div className="absolute ml-5 flex-col gap-5 justify-center items-center  bottom-14 bg-transparent z-10 text-white-A700 w-20">
         <div className="flex gap-5 justify-center items-center">  
-          <img  className="     h-10  w-10  rounded-full" src={props.author.profileImg} alt="" />
+          <img  className="  ml-3    h-10  w-10  rounded-full" src={props.author.profileImg} alt="" />
           <Link to={`/news/${props.author._id}`}>
-          <p>{props.author.name}</p>
+          <p >{props.author.name}</p>
           </Link>
        
         </div>
         <div className=" w-20">
         <p className=" mt-2 text-xs text-white-A700 w-80">{props.news.title}</p>
+        <Link className=" w-full text-xs mt-2 underline underline-offset-1  font-semibold hover:text-blue-400" to={`/news/singleVideo/${props._id}`}>Read More</Link>
         </div>
           </div>
         {!isPlaying && (
