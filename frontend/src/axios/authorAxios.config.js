@@ -14,7 +14,7 @@ const authorAxiosInstance =axios.create({
 authorAxiosInstance.interceptors.request.use(
   
     (config) => {
-      const authorToken = localStorage.getItem('accessToken');
+      const authorToken = localStorage.getItem('authorToken');
       if (authorToken) {
         config.headers['Authorization'] =`Bearer ${authorToken}`; // Attach the token to the Authorization header
       }
