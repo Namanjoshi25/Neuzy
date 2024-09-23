@@ -32,7 +32,7 @@ function Search() {
       setQuery(e)
       handleSearchChange(e)
        }
-       console.log(searchResponse);
+    
   return (
     <div className='relative'>
    {searchResponse.length > 0 && (
